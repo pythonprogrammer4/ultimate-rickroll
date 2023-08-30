@@ -1,8 +1,8 @@
-import webbrowser
 from selenium import webdriver
 import keyboard
 import time
 import Tkinter as tk
+from youtube_video_play_pause_bot import *
 driver = webdriver.Chrome()
 root = tk.Tk()
 def on_closing():#Make program unclosable, except with task manager
@@ -17,10 +17,10 @@ def yt_video_is_paused(driver):
 while True:
     if driver.current_url != 'https://www.youtube.com/watch?v=a3Z7zEc7AXQ':
         driver.close()
-        webbrowser.open('https://www.youtube.com/watch?v=a3Z7zEc7AXQ')
+        youtube.open('https://www.youtube.com/watch?v=a3Z7zEc7AXQ')
         t = time.time()#Reset timer for rickroll watching
     if yt_video_is_paused(driver):
-        keyboard.press('space')#Keep playing rickroll if paused
+        youtube.play_pause_video()#Keep playing rickroll if paused
         t += 1
     if time.time()-t > 210: #End loop once rickroll has been watched
         break
