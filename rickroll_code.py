@@ -18,9 +18,5 @@ while True:
     if driver.current_url != 'https://www.youtube.com/watch?v=a3Z7zEc7AXQ':#If the rickroll was closed or the victim went to another tab
         driver.close()
         youtube.open('https://www.youtube.com/watch?v=a3Z7zEc7AXQ')
-        t = time.time()#Reset the timer for rickroll watching
     if yt_video_is_paused(driver):
-        youtube.play_pause_video()#Keep playing rickroll if paused
-        t += 1
-    if time.time()-t > 210: #End loop once rickroll has been watched
-        break
+        youtube.play_pause_video()
